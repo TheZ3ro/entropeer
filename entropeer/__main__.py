@@ -7,6 +7,7 @@ import logging
 
 from os import getcwd
 from sys import exit
+from colorama import init
 
 from entropeer import EntropyDigger, VERSION
 
@@ -19,6 +20,7 @@ from entropeer import EntropyDigger, VERSION
 #  - implement exclude extension for directroy scan
 
 logging.basicConfig(level=logging.WARN, format='[%(levelname)s]: %(message)s')
+init(autoreset=True)
 
 def main():
     parser = argparse.ArgumentParser(prog="entropeer", description='Search files for strings with high shannon entropy.')

@@ -2,9 +2,9 @@ import logging
 
 from os import path, listdir, walk
 from multiprocessing import Process, JoinableQueue, cpu_count
-from sys import exit
+from sys import exit, stdout
 
-from colored import fg, attr
+from colorama import Fore, Style
 
 from entropeer.entropy import FileEntropy
 
@@ -35,10 +35,10 @@ def format_line(file, line_num, content, found_string, match=True):
         content = found_string
 
     # put red highlighting around the matched string
-    content = content.replace(found_string, fg('red') + found_string + attr('reset'))
+    content = content.replace(found_string, Style.BRIGHT + Fore.RED + found_string + Style.RESET_ALL)
 
     # print the informations
-    templ = "{}{}:{}:{}{}".format(attr('bold'), file, line_num, attr('reset'), content)
+    templ = "{}{}:{}:{}{}".format(Style.BRIGHT, file, line_num, Style.RESET_ALL, content)
     logger.info(templ)
 
 
@@ -105,7 +105,7 @@ class EntropyDigger(object):  # 🦾
             logging.info("Loaded {} regex rules".format(len(FileEntropy.rules)))
 
         logger = logging.getLogger('results')
-        loghandler = logging.StreamHandler()
+        loghandler = logging.StreamHandler(stdout)
         formatter = logging.Formatter('%(message)s')
         loghandler.setFormatter(formatter)
         logger.addHandler(loghandler)
