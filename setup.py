@@ -11,20 +11,20 @@ setup(
     name='entropeer',
     version=VERSION,
     url='https://github.com/TheZ3ro/entropeer',
-    # GitHub releases in format "entropeer-X.Y"
-    download_url='https://github.com/TheZ3ro/entropeer/archive/entropeer-' + VERSION + '.tar.gz',
-    license='MIT',
+    # GitHub releases in format "X.Y"
+    download_url='https://github.com/TheZ3ro/entropeer/archive/' + VERSION + '.tar.gz',
+    license='LGPLv3',
     author='TheZero',
     author_email='io@thezero.org',
-    description='entropeer is ...',
+    description='Searches through files and directories for high entropy strings and secrets. ',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    keywords='...',
+    keywords='entropy, secrets, grep, recursive',
     classifiers=[
         'Environment :: Console',
         'Intended Audience :: Developers',
         'Intended Audience :: System Administrators',
-        'License :: OSI Approved :: LGPLv3 License',
+        'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',
         'Natural Language :: English',
         'Operating System :: MacOS',
         'Operating System :: Microsoft :: Windows',
@@ -45,6 +45,6 @@ setup(
     },
     include_package_data=True,
     install_requires=[
-        'colorama'
+        'colorama',
     ],
 )
